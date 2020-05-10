@@ -1,0 +1,16 @@
+<p>Login</p>
+<div>
+  <p *ngIf="formLoading">Loading...</p>
+  <p *ngIf="submitLoading">Starting...</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <select formControlName="dialCode">
+      <option value="" disabled>Select a country code...</option>
+      <option *ngFor="let cc of countryCodes" value="{{cc.dialCode}}">
+        {{cc.label}}
+      </option>
+    </select>
+    <input type="text" placeholder="Phone number" formControlName="phoneNumber"/>
+    <button type="submit" [disabled]="!form.valid">Get started</button>
+    <a [routerLink]="['/get-started/verification']">Ver</a>
+  </form>
+</div>

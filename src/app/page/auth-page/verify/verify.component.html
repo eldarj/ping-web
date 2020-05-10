@@ -1,0 +1,8 @@
+<p>Login</p>
+<div>
+  <p *ngIf="formLoading">Loading...</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="SMS PIN" formControlName="twoWayPin"/>
+    <button type="submit" [disabled]="!form.valid">Verify</button>
+  </form>
+</div>

@@ -28,7 +28,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "src/styles.scss",
+              "src/styles/util/layout-util.scss",
+              "src/styles/util/design-util.scss",
+              "src/styles/util/margins-util.scss",
+              "src/styles/global/global.scss"
             ],
             "scripts": []
           },

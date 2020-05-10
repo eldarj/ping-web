@@ -1,0 +1,16 @@
+<p>Add new contact</p>
+<div>
+  <p *ngIf="formLoading">Loading...</p>
+  <p *ngIf="submitLoading">Adding...</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <select formControlName="dialCode">
+      <option value="" disabled>Select a country code...</option>
+      <option *ngFor="let cc of countryCodes" value="{{cc.dialCode}}">
+        {{cc.label}}
+      </option>
+    </select>
+    <input type="text" placeholder="Phone number" formControlName="phoneNumber"/>
+    <input type="text" placeholder="Contact name" formControlName="contactName"/>
+    <button type="submit" [disabled]="!form.valid">Add</button>
+  </form>
+</div>

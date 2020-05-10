@@ -1,0 +1,20 @@
+.nav-toolbar {
+  background: #fff;
+
+  .logo-src {
+    max-width: 100px;
+
+    &.small {
+      max-width: 50px;
+    }
+
+    &.x-small {
+      max-width: 35px;
+    }
+  }
+}
+.links {
+  a {
+    margin: 5px;
+  }
+}

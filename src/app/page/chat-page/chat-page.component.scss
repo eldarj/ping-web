@@ -1,0 +1,59 @@
+.contacts-sidebar-wrapper {
+  width: auto;
+  border-right: 1px solid #444;
+
+  .contacts-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+
+    .contacts-sidebar-inner {
+      display: none;
+      flex-grow: 1;
+    }
+  }
+
+  &.expanded {
+    min-width: 300px;
+    .contacts-sidebar {
+      .contacts-sidebar-inner {
+        display: block;
+      }
+    }
+  }
+  .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
+    padding: 5px;
+    margin: 5px 0 0 auto;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+
+    background: #eee;
+    cursor: pointer;
+  }
+  .single-contact {
+    flex: 1;
+    padding: 5px 15px;
+    cursor: pointer;
+    background: #EEE;
+    .contact-name {
+      font-size: 14px;
+    }
+    .phone-number {
+      font-size: 10px;
+      color: #555;
+    }
+    &:hover {
+      background: #FFF;
+    }
+  }
+}

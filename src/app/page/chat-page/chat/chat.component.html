@@ -1,0 +1,44 @@
+<div class="no-contacts flex flex-grow flex-direction-column justify-content-center align-items-center"
+     *ngIf="contact === null else chat">
+  <span>Select a contact or add a new one</span>
+  <button (click)="newContactModalVisible = true">Add new contact</button>
+  <app-new-contact *ngIf="newContactModalVisible"></app-new-contact>
+</div>
+<ng-template #chat>
+  <div class="flex flex-grow flex-direction-row">
+    <div class="chat-contact-wrapper flex flex-grow flex-direction-column">
+      <div class="chat-inner-header flex flex-direction-row">
+        <div class="flex flex-grow flex-direction-column">
+          <span class="contact-name">{{contact.contactName}}</span>
+          <span class="phone-number">{{contact.dialCodeAndPhoneNumber}}</span>
+        </div>
+        <div class="flex justify-content-center align-items-center">
+          <span (click)="optionsPaneExpanded = !optionsPaneExpanded">-more-</span>
+        </div>
+      </div>
+      <div class="chat-content-wrapper flex flex-direction-column">
+        <div *ngFor="let m of getMessages()">
+          <span class="content">{{m.text}}</span>
+          <i class="{{messageStatusIconClass(m)}}"></i>
+        </div>
+      </div>
+      <div class="chat-writer-wrapper">
+        <app-chat-writer></app-chat-writer>
+        <!-- Comp -->
+        <button (click)="makeCall()">Call</button>
+        <button id="sendButton" (click)="send()">Send</button>
+        <button id="closeButton" disabled>Stop</button>
+      </div>
+    </div>
+    <div class="contact-options-wrapper flex flex-direction-column" *ngIf="optionsPaneExpanded">
+      <div class="flex flex-direction-row justify-content-between">
+        <div>Options</div>
+        <div>-cog-</div>
+      </div>
+      <div class="flex flex-direction-column">
+        <span>Option 1</span>
+        <span>Option 2</span>
+      </div>
+    </div>
+  </div>
+</ng-template>

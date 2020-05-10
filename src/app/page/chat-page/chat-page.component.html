@@ -1,0 +1,27 @@
+<h1>Chat</h1>
+<div class="flex flex-direction-row">
+  <div class="contacts-sidebar-wrapper" [class.expanded]="contactsSidebarExpanded">
+    <div class="contacts-sidebar">
+      <div class="contacts-sidebar-inner">
+        <h4>Contacts</h4>
+        <div *ngIf="loading else contactsSidebar">
+          Loading contacts...
+        </div>
+        <ng-template #contactsSidebar>
+          <div *ngFor="let c of contacts" (click)="selectContact(c)">
+            <div class="single-contact flex flex-direction-column">
+              <span class="contact-name">{{c.contactName}}</span>
+              <span class="phone-number">{{c.dialCodeAndPhoneNumber}}</span>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+      <div class="options" (click)="contactsSidebarExpanded = !contactsSidebarExpanded">
+        <span>{{contactsSidebarExpanded ? '<<' : '>>'}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="flex chat flex-grow">
+    <app-chat class="flex flex-grow"></app-chat>
+  </div>
+</div>
